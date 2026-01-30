@@ -18,13 +18,13 @@ A passwordless authentication application using Email + OTP, built with Kotlin, 
 - **`StateFlow<AuthState>`**: Used in `AuthViewModel` to expose the current UI state in a reactive, lifecycle-aware manner.
 - **`Sealed Class AuthState`**: Represents the mutually exclusive states of the UI (LoggedOut, OtpSent, LoggedIn), eliminating invalid intermediate states.
 
-## 3. External SDK: Firebase Analytics
-I chose **Firebase Analytics** as the external SDK.
-- **Why**: It is the industry standard for Android analytics, offers free unlimited logging, and integrates seamlessly with Google Play Services.
+## 3. External SDK: Timber
+I chose **Timber** as the external SDK for logging.
+- **Why**: It provides a lightweight, extensible API for logging on top of Android's standard Log class. It automatically handles tagging and allows for easy swapping of logging behaviors (e.g., debug vs release trees).
 - **Integration**:
-  - Added the `com.google.gms.google-services` plugin and `firebase-analytics` dependency.
-  - Created a wrapper `AnalyticsLogger` to abstract the `FirebaseAnalytics` instance.
-  - **Note**: A dummy `google-services.json` is included to let the project build. For real data to appear in the Firebase Console, replace it with a valid file from your Firebase project.
+  - Added the `timber` dependency in `libs.versions.toml`.
+  - Initialized `Timber.DebugTree()` in `MyApplication.kt`.
+  - Replaced all usage of `FirebaseAnalytics` with `Timber` calls throughout the app.
 
 ## 4. AI Assistance Statement
 - **AI Assisted**:
