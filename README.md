@@ -30,6 +30,7 @@ I chose **Timber** as the external SDK for logging.
 - **AI Assisted**:
   - Boilerplate setup for Gradle and Manifest.
   - Generating the Compose UI hierarchies options.
+  - Drafting the `OtpManager` logic to ensure all edge cases (expiry, attempts) were covered.
 - **Manual Understanding**:
   - The architectural pattern (ViewModel + StateFlow).
   - The decision to use a `LaunchedEffect` for the session timer instead of a ViewModel ticker.
